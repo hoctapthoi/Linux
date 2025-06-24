@@ -2,4 +2,4 @@
 top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print 100 - $1}'
 
 ---Mem by free:
-free | awk '/Mem/{print $3/$2 * 100}'
+free | awk '/Mem/ {print ($3-$6-$7)/$2 * 100}'
